@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(PagesController::class)->group(function(){
+    Route::get('/', 'index')->name('pages.index');
+    Route::get('about', 'about')->name('pages.about');
+    Route::get('contact', 'contact')->name('pages.contact');
 });
+
+Route::resource('articles', ArticleController::class);

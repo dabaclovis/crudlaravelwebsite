@@ -29,6 +29,9 @@
                 <li class=" nav-item">
                     <a href="{{ url('/') }}" class=" nav-link">Home</a>
                 </li>
+                <li class=" nav-item">
+                    <a href="{{ route('articles.index') }}" class=" nav-link">Articles</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -46,8 +49,8 @@
     <div class=" bg-secondary text-white p-1">
         <div class=" container">
             <div class=" w3-center w3-bottombar">
-                <a href="" class=" btn btn-primary">Contact</a>
-                <a href="" class=" btn btn-primary">About</a>
+                <a href="{{ url('contact') }}" class=" btn btn-primary">Contact</a>
+                <a href="{{ url('about') }}" class=" btn btn-primary">About</a>
                 <a href="" class=" btn btn-primary">GitHub</a>
                 <a href="" class=" btn btn-primary">Linkedin</a>
             </div>

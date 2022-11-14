@@ -14,7 +14,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return view('articles.index',[
+            'articles' => Article::orderBy('created_at','desc')->paginate(3),
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => ['required', 'string','max:60'],
+            'body' => ['string', 'required','max:1500'],
+        ]);
+            $article = new Article();
+
+            $article->title = $request->input('title');
+            $article->body = $request->input('body');
+            $article->save();
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -46,7 +57,10 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('articles.show',[
+
+            'article' => $article,
+        ]);
     }
 
     /**
@@ -57,7 +71,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('articles.edit',[
+            'article' => $article,
+        ]);
     }
 
     /**
