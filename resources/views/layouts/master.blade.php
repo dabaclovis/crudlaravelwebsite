@@ -32,6 +32,9 @@
                 <li class=" nav-item">
                     <a href="{{ route('articles.index') }}" class=" nav-link">Articles</a>
                 </li>
+                <li class=" nav-item">
+                    <a href="{{ route('posts.index') }}" class=" nav-link">Posts</a>
+                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
