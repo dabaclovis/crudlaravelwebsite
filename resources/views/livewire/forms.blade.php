@@ -1,7 +1,7 @@
 <div class=" py-2 w3-card w3-container">
     {{-- sections1 --}}
     @if ($x == 1)
-        {!! Form::open() !!}
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -61,12 +61,38 @@
             <div class="form-group">
                 {!! Form::submit('Submit', ['class' => 'btn btn-primary w3-btn']) !!}
             </div>
-        {!! Form::close() !!}
+
     @endif
     {{-- sections2 --}}
     @if ($x == 2)
-        {!! Form::open() !!}
-        {!! Form::close() !!}
+
+        <div class="w3-row-padding">
+            <div class=" w3-half">
+                <div class="form-group">
+                    {!! Form::label('fname', 'First Name:', ['class' =>'w3-card p-2']) !!}
+                    {!! Form::text('fname', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('lname', 'Last Name:', ['class' =>'w3-card p-2']) !!}
+                    {!! Form::text('lname', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('email', 'Email Address:', ['class' =>'w3-card p-2']) !!}
+                    {!! Form::email('email', null, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <div class=" w3-half">
+                <div class="form-group">
+                    {!! Form::label('msg', 'Message:', ['class' => 'w3-card p-2']) !!}
+                    {!! Form::textarea('msg', null, ['class' => 'form-conttrol']) !!}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group w3-topbar d-flex justify-content-center">
+            {!! Form::submit('Submit', ['class' => 'btn btn-primary mt-1']) !!}
+        </div>
+
     @endif
     {{-- sections3 --}}
     @if ($x == 3)
