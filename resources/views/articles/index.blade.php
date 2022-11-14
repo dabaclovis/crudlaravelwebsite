@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class=" d-flex justify-content-between w3-bottombar">
+    <div class=" d-flex justify-content-between w3-bottombar w3-teal">
         <div class=" card-header">
             <h3>Crud Application with laravel Eloquent</h3>
         </div>
         <div class="">
-            <a href="{{ route('articles.create') }}" class=" btn btn-primary">Create Article</a>
+            <a href="{{ route('articles.create') }}" class=" btn btn-primary mt-3 mx-3">Create Article</a>
         </div>
     </div>
     <div class=" py-4">
@@ -31,7 +31,7 @@
                 <p>{{ $articles->links() }}</p>
             </div>
         @else
-            <p>NO article created yet</p>
+            <p class="p-4 mt-3 w3-center w3-card bg-info text-white">NO article created yet</p>
         @endif
     </div>
 @endsection

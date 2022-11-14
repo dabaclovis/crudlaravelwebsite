@@ -27,8 +27,10 @@ Route::resource('articles', ArticleController::class);
 Route::controller(PostController::class)->group(function(){
     Route::get('posts', 'index')->name('posts.index');
     Route::get('posts/create', 'create')->name('posts.create');
+    Route::post('store', 'store')->name('posts.store');
     Route::get('posts/{post}', 'show')->name('posts.show');
     Route::get('posts/{post}/edit', 'edit')->name('posts.edit');
     Route::post('posts/{post}', 'update')->name('posts.update');
-    Route::post('store', 'create')->name('posts.store');
+    Route::delete('posts/{post}','destroy')->name('posts.destroy');
+
 });

@@ -5,20 +5,20 @@
         <h2>Create Post</h2>
     </div>
     <div class="w3-card-4 p-2">
-        <form action="" method="post">
+        <form action="{{ route('posts.store') }}" method="post">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="title" class=" w3-card p-1">Heading:</label>
                 <input type="text" name="title" class="form-control">
                 @error('title')
-                    <li>{{ $message }}</li>
+                    <li class=" alert alert-danger" style=" list-style:none;">{{ $message }}</li>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="title" class=" w3-card p-1">Message:</label>
+                <label for="body" class=" w3-card p-1">Message:</label>
                 <textarea name="body" id="" cols="30" rows="10" class="form-control"></textarea>
                 @error('body')
-                    <li>{{ $message }}</li>
+                    <li class=" alert alert-danger" style=" list-style:none;">{{ $message }}</li>
                 @enderror
             </div>
             <div class="form-group">
