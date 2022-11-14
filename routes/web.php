@@ -20,6 +20,7 @@ Route::controller(PagesController::class)->group(function(){
     Route::get('/', 'index')->name('pages.index');
     Route::get('about', 'about')->name('pages.about');
     Route::get('contact', 'contact')->name('pages.contact');
+    Route::get('html/form','forms')->name('pages.forms');
 });
 
 Route::resource('articles', ArticleController::class);
