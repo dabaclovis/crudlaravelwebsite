@@ -90,10 +90,17 @@ class ArticleController extends Controller
             'body' => ['string', 'required','max:1500'],
         ]);
 
-        $article = Article::find($article->id);
-            $article->title = $request->input('title');
-            $article->body = $request->input('body');
-        $article->save();
+        $article = Article::where('id',$article->id)
+        ->update([
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+        ]);
+
+        // $article = Article::find($article->id);
+        //     $article->title = $request->input('title');
+        //     $article->body = $request->input('body');
+        // $article->save();
+
         return  redirect()->route('articles.index');
     }
 

@@ -17,7 +17,9 @@
                         style=" text-decoration:none;">
                         {{ $article->id }}.) &nbsp;{{ Str::ucfirst($article->title) }}
                     </a>
-                    <div class=" w3-small">
+                    <div class=" d-flex">
+                        <a href="{{ route('articles.show', $article->id) }}" class="w3-medium mx-1 btn btn-info">Show</a>
+                        <a href="{{ route('articles.edit', $article->id) }}" class="w3-medium mx-1 btn btn-info">Edit</a>
                         {!! Form::open(['route' => ['articles.destroy',$article->id],'method' => 'post']) !!}
                          {!! Form::hidden('_method','DELETE') !!}
                          {!! Form::submit('DELETE', ['class' => 'btn btn-danger']) !!}
