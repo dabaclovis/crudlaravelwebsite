@@ -31,7 +31,7 @@
                 <p>{{ $articles->links() }}</p>
             </div>
         @else
-            <p class="p-4 mt-3 w3-center w3-card bg-info text-white">NO article created yet</p>
+            <p class="p-4 mt-3 w3-center w3-card bg-info text-white">NO ARTICLE CREATED YET</p>
         @endif
     </div>
 @endsection
