@@ -15,7 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view('articles.index',[
-            'articles' => Article::orderBy('created_at','desc')->paginate(3),
+            'articles' => Article::latest()->paginate(8),
         ]);
     }
 
@@ -85,7 +85,16 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $this->validate($request,[
+            'title' => ['required', 'string','max:60'],
+            'body' => ['string', 'required','max:1500'],
+        ]);
+
+        $article = Article::find($article->id);
+            $article->title = $request->input('title');
+            $article->body = $request->input('body');
+        $article->save();
+        return  redirect()->route('articles.index');
     }
 
     /**
@@ -96,6 +105,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+
+        return redirect()->route('articles.index');
     }
 }
